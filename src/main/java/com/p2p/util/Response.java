@@ -10,6 +10,7 @@ public class Response implements Serializable {
     private Vector<String> allRegisterOnline;
     private Vector<String> allRegisterDone;
     private InetSocketAddress chatP2PEndAddress;
+    private String chatOtherRegisterName;
     public  Response(int responseType){
         this.responseType=responseType;
     }
@@ -27,6 +28,13 @@ public class Response implements Serializable {
     public Response(int responseType, InetSocketAddress chatP2PEndAddress) {
         this(responseType);
         this.chatP2PEndAddress = chatP2PEndAddress;
+    }
+
+    public Response(int responseType, InetSocketAddress chatP2PEndAddress, String chatOtherRegisterName, String message) {
+        this(responseType);
+        this.chatP2PEndAddress = chatP2PEndAddress;
+        this.chatOtherRegisterName = chatOtherRegisterName;
+        this.message = message;
     }
 
     public int getResponseType() {
@@ -47,5 +55,9 @@ public class Response implements Serializable {
 
     public Vector<String> getAllRegisterDone() {
         return allRegisterDone;
+    }
+
+    public String getChatOtherRegisterName() {
+        return chatOtherRegisterName;
     }
 }

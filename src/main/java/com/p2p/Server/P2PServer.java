@@ -3,7 +3,7 @@ package com.p2p.Server;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import static com.p2p.Server.ServerThread.registerPassword;
+import static com.p2p.util.Config.*;
 import static com.p2p.util.DataSave.MapToTxT;
 import static com.p2p.util.DataSave.TxTToMap;
 
@@ -17,7 +17,7 @@ public class P2PServer {
             System.out.println("*******服务器已经启动*******");
             while (true) {
                 Socket socket = serverSocket.accept();
-                System.out.println("[系统消息] 已接收到客户：" + socket.getInetAddress());
+                System.out.println("[系统消息 进程--Server] 已接收到用户: " + socket.getInetAddress());
                 ServerThread serverThread = new ServerThread(socket);
 
                 serverThread.start();
